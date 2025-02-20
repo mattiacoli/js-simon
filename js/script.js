@@ -6,6 +6,7 @@ const numbersEl = document.getElementById('numbers-list')
 const formEl = document.getElementById('answers-form')
 const inputEl = document.querySelectorAll('#input-group input')
 const buttonEl = document.querySelector('button')
+const messageEl = document.getElementById('message')
 
 // view 5 random number in page
 let numbersLi = []
@@ -54,11 +55,6 @@ const intervalId = setInterval(function () {
 }, 1000)
 
 // user number
-
-
-
-
-
 buttonEl.addEventListener('click', function (e) {
   e.preventDefault()
 
@@ -81,6 +77,8 @@ buttonEl.addEventListener('click', function (e) {
   const result = ` Complimenti hai indovinato ${count} numeri e sono ${sameNumber}`
   
   console.log(result);
+
+  messageEl.innerText = result
   
 })
 
