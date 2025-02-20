@@ -10,8 +10,6 @@ const buttonEl = document.querySelector('button')
 // view 5 random number in page
 let numbersLi = []
 
-
-
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -19,15 +17,15 @@ function getRndInteger(min, max) {
 for (let i = 0; i < 5; i++) {
 
   const thisNumb = getRndInteger(1, 9)
-  numbersLi.push(thisNumb)
-
-  numbersEl.innerHTML += `<li>${thisNumb}</li> `
+  // add only unique number in array
+  if(!numbersLi.includes(thisNumb)){
+    numbersLi.push(thisNumb)
+    numbersEl.innerHTML += `<li>${thisNumb}</li> `
+  } else {
+    i --;
+  }
+    
 }
-
-
-
-
-
 
 // countdown
 
@@ -63,7 +61,6 @@ buttonEl.addEventListener('click', function (e) {
     const element = inputEl[index].value;
 
     userNumber.push(element)
-
   }
   console.log(userNumber);
 })
