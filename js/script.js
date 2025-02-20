@@ -27,6 +27,9 @@ for (let i = 0; i < 5; i++) {
     
 }
 
+console.log(numbersLi);
+
+
 // countdown
 
 let timer = 5
@@ -52,20 +55,34 @@ const intervalId = setInterval(function () {
 
 // user number
 
+
+
+
+
 buttonEl.addEventListener('click', function (e) {
   e.preventDefault()
 
   let userNumber = []
+  const sameNumber = []
+  let count = 0;
 
   for (let index = 0; index < inputEl.length; index++) {
-    const element = inputEl[index].value;
+    const element = Number(inputEl[index].value);
 
     userNumber.push(element)
+
+    if(numbersLi.includes(element)){
+      count ++;
+      sameNumber.push(element)
+    }
+
   }
-  console.log(userNumber);
+  
+  const result = ` Complimenti hai indovinato ${count} numeri e sono ${sameNumber}`
+  
+  console.log(result);
+  
 })
-
-
 
 
 
