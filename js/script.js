@@ -33,7 +33,7 @@ console.log(numbersLi);
 
 // countdown
 
-let timer = 5
+let timer = 30
 
 const intervalId = setInterval(function () {
   //decrement timer
