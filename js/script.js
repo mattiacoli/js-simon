@@ -1,4 +1,4 @@
-// select the elements from HTML
+// select the elements from DOM
 
 const conutdownEl = document.getElementById('countdown')
 const instructionEl = document.getElementById('instructions')
@@ -9,23 +9,25 @@ const buttonEl = document.querySelector('button')
 const messageEl = document.getElementById('message')
 
 // view 5 random number in page
-let numbersLi = []
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+let numbersLi = []
+
 for (let i = 0; i < 5; i++) {
 
   const thisNumb = getRndInteger(1, 9)
   // add only unique number in array
-  if(!numbersLi.includes(thisNumb)){
+  if (!numbersLi.includes(thisNumb)) {
     numbersLi.push(thisNumb)
     numbersEl.innerHTML += `<li>${thisNumb}</li> `
   } else {
-    i --;
+    i--;
   }
-    
+
 }
 
 console.log(numbersLi);
@@ -36,6 +38,8 @@ console.log(numbersLi);
 let timer = 30
 
 const intervalId = setInterval(function () {
+
+
   //decrement timer
   timer--;
   // print timer in page
@@ -55,7 +59,7 @@ const intervalId = setInterval(function () {
 }, 1000)
 
 // user number
-buttonEl.addEventListener('click', function (e) {
+formEl.addEventListener('submit', function (e) {
   e.preventDefault()
 
   let userNumber = []
@@ -67,19 +71,19 @@ buttonEl.addEventListener('click', function (e) {
 
     userNumber.push(element)
 
-    if(numbersLi.includes(element)){
-      count ++;
+    if (numbersLi.includes(element)) {
+      count++;
       sameNumber.push(element)
     }
 
   }
-  
+
   const result = ` Complimenti hai indovinato ${count} numeri e sono ${sameNumber}`
-  
+
   console.log(result);
 
   messageEl.innerText = result
-  
+
 })
 
 
